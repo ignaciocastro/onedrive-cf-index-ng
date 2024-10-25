@@ -14,6 +14,8 @@ class MyDocument extends Document {
           {siteConfig.googleFontLinks.map(link => (
             <link key={link} rel="stylesheet" href={link} />
           ))}
+          <meta property="og:image" content="/banner.webp" />
+          <meta name="twitter:image" content="/banner.webp" />
         </Head>
         <body>
           <Main />
