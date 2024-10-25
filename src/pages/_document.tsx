@@ -7,6 +7,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta name="description" content="A fan-run, semi public archive to all things HGSN (and its author)" />
+          <meta property="og:description" content="A fan-run, semi public archive to all things HGSN (and its author)" />
           <meta name="robots" content="noindex" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,6 +16,8 @@ class MyDocument extends Document {
             <link key={link} rel="stylesheet" href={link} />
           ))}
           <meta property="og:image" content="/banner.webp" />
+          <meta property="og:image:width" content="1280" />
+          <meta property="og:image:height" content="640" />
           <meta name="twitter:image" content="/banner.webp" />
         </Head>
         <body>
