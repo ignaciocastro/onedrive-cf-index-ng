@@ -1,26 +1,32 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-import siteConfig from '../../config/site.config'
+import Document, { Head, Html, Main, NextScript } from 'next/document';
+import siteConfig from '../../config/site.config';
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
+          {/* HTML Meta Tags */}
+          <title>The Summer Hikaru Archived</title>
           <meta name="description" content="A fan-run, semi public archive to all things HGSN (and its author)" />
-          <meta name="robots" content="noindex" />
-          
-          {/* OpenGraph Tags */}
-          <meta property="og:type" content="website" />
-          <meta property="og:site_name" content={siteConfig.title} />
+
+          {/* Facebook Meta Tags */}
           <meta property="og:url" content="https://hgsn.space" />
-          <meta property="og:title" content={siteConfig.title} />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="The Summer Hikaru Archived" />
           <meta property="og:description" content="A fan-run, semi public archive to all things HGSN (and its author)" />
           <meta property="og:image" content="https://hgsn.space/banner.jpg" />
-          <meta property="og:image:width" content="1280" />
-          <meta property="og:image:height" content="640" />
-          <meta property="og:image:type" content="image/jpeg" />
-          
-          {/* Favicon and Fonts */}
+
+          {/* Twitter Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="hgsn.space" />
+          <meta property="twitter:url" content="https://hgsn.space" />
+          <meta name="twitter:title" content="The Summer Hikaru Archived" />
+          <meta name="twitter:description" content="A fan-run, semi public archive to all things HGSN (and its author)" />
+          <meta name="twitter:image" content="https://hgsn.space/banner.jpg" />
+
+          {/* Additional Meta Tags */}
+          <meta name="robots" content="noindex" />
           <link rel="icon" href="/favicon.ico" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
@@ -33,8 +39,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;
