@@ -16,10 +16,10 @@ class MyDocument extends Document {
           {siteConfig.googleFontLinks.map(link => (
             <link key={link} rel="stylesheet" href={link} />
           ))}
-          <meta property="og:image" content="/banner.jpg" />
+          <meta property="og:image" content="https://hgsn.space/banner.jpg" />
+          <meta name="twitter:image" content="https://hgsn.space/banner.jpg" />
           <meta property="og:image:width" content="1280" />
           <meta property="og:image:height" content="640" />
-          <meta name="twitter:image" content="/banner.jpg" />
         </Head>
         <body>
           <Main />
