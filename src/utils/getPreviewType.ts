@@ -11,6 +11,7 @@ export const preview = {
   office: 'ms-office',
   epub: 'epub',
   url: 'url',
+  cbz: 'cbz',
 }
 
 export const extensions = {
@@ -32,6 +33,8 @@ export const extensions = {
   pptx: preview.office,
   xls: preview.office,
   xlsx: preview.office,
+
+  cbz: preview.cbz,
 
   c: preview.code,
   cpp: preview.code,
