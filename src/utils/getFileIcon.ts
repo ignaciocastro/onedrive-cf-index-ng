@@ -89,6 +89,7 @@ const extensions = {
   epub: icons.book,
   mobi: icons.book,
   azw3: icons.book,
+  cbz: icons.book,
 
   url: icons.link,
 }
