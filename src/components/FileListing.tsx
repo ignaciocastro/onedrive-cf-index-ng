@@ -31,6 +31,7 @@ import OfficePreview from './previews/OfficePreview'
 import AudioPreview from './previews/AudioPreview'
 import VideoPreview from './previews/VideoPreview'
 import PDFPreview from './previews/PDFPreview'
+import CBZPreview from './previews/CBZPreview'
 import URLPreview from './previews/URLPreview'
 import ImagePreview from './previews/ImagePreview'
 import DefaultPreview from './previews/DefaultPreview'
@@ -407,6 +408,9 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
 
         case preview.epub:
           return <EPUBPreview file={file} />
+
+        case preview.cbz:
+          return <CBZPreview file={file} />
 
         case preview.url:
           return <URLPreview file={file} />
