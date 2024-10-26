@@ -15,12 +15,39 @@ const CBZEmbedPreview: React.FC<{ file: any }> = ({ file }) => {
 
   return (
     <div>
-      <div className="w-full overflow-hidden rounded" style={{ height: '90vh' }}>
-        <iframe src={url} frameBorder="0" width="100%" height="100%" allowFullScreen></iframe>
+      <div className="iframe-container">
+        <iframe
+          src={url}
+          frameBorder="0"
+          className="iframe"
+          allowFullScreen
+        ></iframe>
       </div>
       <DownloadBtnContainer>
         <DownloadButtonGroup />
       </DownloadBtnContainer>
+      <style jsx>{`
+        .iframe-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 90vh; /* Adjust height as needed */
+          overflow: hidden;
+        }
+
+        .iframe {
+          width: 100%;
+          height: 100%;
+          min-height: 300px; /* Set a minimum height */
+        }
+
+        @media (max-width: 768px) {
+          .iframe-container {
+            height: 70vh; /* Adjust height for mobile */
+          }
+        }
+      `}</style>
     </div>
   );
 };
