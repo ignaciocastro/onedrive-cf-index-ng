@@ -11,7 +11,7 @@ const CBZEmbedPreview: React.FC<{ file: any }> = ({ file }) => {
   const cbzPath = encodeURIComponent(
     `${getBaseUrl()}/api/raw?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`
   );
-  const url = `https://villain.js.org/#/reader?src=${cbzPath}`;
+  const url = `https://villain.js.org/#/reader?src=${cbzPath}&theme=dark`;
 
   return (
     <div>
