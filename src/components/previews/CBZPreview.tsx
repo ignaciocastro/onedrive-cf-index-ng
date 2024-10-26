@@ -11,12 +11,12 @@ const CBZEmbedPreview: React.FC<{ file: any }> = ({ file }) => {
   const cbzPath = encodeURIComponent(
     `${getBaseUrl()}/api/raw?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`
   );
-  const url = `https://villain.js.org/#/reader?src=${cbzPath}&theme=dark`;
+  const url = `https://villain.js.org/#/reader?src=${cbzPath}&theme=Dark`;
 
   return (
     <div>
       <div className="w-full overflow-hidden rounded" style={{ height: '90vh' }}>
-        <iframe src={url} frameBorder="0" width="100%" height="100%"></iframe>
+        <iframe src={url} frameBorder="0" width="100%" height="100%" allowFullScreen></iframe>
       </div>
       <DownloadBtnContainer>
         <DownloadButtonGroup />
