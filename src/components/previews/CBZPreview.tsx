@@ -11,7 +11,7 @@ const CBZEmbedPreview: React.FC<{ file: any }> = ({ file }) => {
   const cbzPath = encodeURIComponent(
     `${getBaseUrl()}/api/raw?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`
   );
-  const url = `https://codedread.github.io/kthoom/index.html?bookUri=${cbzPath}`;
+  const url = `https://codedread.github.io/kthoom/index.html?bookUri=${cbzPath}&preventUserOpeningBooks=true&alwaysOptimizedForStreaming=true`;
 
   return (
     <div>
