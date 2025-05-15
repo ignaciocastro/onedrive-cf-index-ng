@@ -1,13 +1,11 @@
 import type { OdFileObject } from '../../types'
 
-import { FC, useEffect, useRef, useState } from 'react'
-import { ReactReader } from 'react-reader'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { getBaseUrl } from '../../utils/getBaseUrl';
+import { getStoredToken } from '../../utils/protectedRouteHandler';
+import DownloadButtonGroup from '../DownloadBtnGtoup';
+import { DownloadBtnContainer } from './Containers';
 
-import Loading from '../Loading'
-import DownloadButtonGroup from '../DownloadBtnGtoup'
-import { DownloadBtnContainer } from './Containers'
-import { getStoredToken } from '../../utils/protectedRouteHandler'
 
 const EPUBPreview: FC<{ file: OdFileObject }> = ({ file }) => {
   const { asPath } = useRouter()
