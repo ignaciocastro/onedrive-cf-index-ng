@@ -13,62 +13,27 @@ const EPUBPreview: FC<{ file: OdFileObject }> = ({ file }) => {
   const { asPath } = useRouter()
   const hashedToken = getStoredToken(asPath)
 
-  const [epubContainerWidth, setEpubContainerWidth] = useState(400)
-  const epubContainer = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    setEpubContainerWidth(epubContainer.current ? epubContainer.current.offsetWidth : 400)
-  }, [])
-
-  const [location, setLocation] = useState<string>()
-  const onLocationChange = (cfiStr: string) => setLocation(cfiStr)
-
-  // Fix for not valid epub files according to
-  // https://github.com/gerhardsletten/react-reader/issues/33#issuecomment-673964947
-  const fixEpub = rendition => {
-    const spineGet = rendition.book.spine.get.bind(rendition.book.spine)
-    rendition.book.spine.get = function (target: string) {
-      const targetStr = target as string
-      let t = spineGet(target)
-      while (t == null && targetStr.startsWith('../')) {
-        target = targetStr.substring(3)
-        t = spineGet(target)
-      }
-      return t
-    }
-  }
+   const epubPath = encodeURIComponent(
+    `${getBaseUrl()}/api/raw?path=${asPath}${hashedToken ? `&odpt=${hashedToken}` : ''}`
+  );
+  const url = `https://app.flowoss.com/?src=${epubPath}`;
 
   return (
     <div>
-      <div
-        className="no-scrollbar flex w-full flex-col overflow-scroll rounded bg-white dark:bg-gray-900 md:p-3"
-        style={{ maxHeight: '90vh' }}
-      >
-        <div className="no-scrollbar w-full flex-1 overflow-scroll" ref={epubContainer} style={{ minHeight: '70vh' }}>
-          <div
-            style={{
-              position: 'absolute',
-              width: epubContainerWidth,
-              height: '70vh',
-            }}
-          >
-            <ReactReader
-              url={`/api/raw?path=${asPath}${hashedToken ? '&odpt=' + hashedToken : ''}`}
-              getRendition={rendition => fixEpub(rendition)}
-              loadingView={<Loading loadingText={'Loading EPUB ...'} />}
-              location={location}
-              locationChanged={onLocationChange}
-              epubInitOptions={{ openAs: 'epub' }}
-              epubOptions={{ flow: 'scrolled', allowPopups: true }}
-            />
-          </div>
-        </div>
+      <div className="w-full overflow-hidden rounded relative" style={{ height: 'calc(100vh - 120px)' }}>
+        <iframe 
+          src={url} 
+          frameBorder="0" 
+          width="100%" 
+          height="100%" 
+          allowFullScreen
+        ></iframe>
       </div>
       <DownloadBtnContainer>
         <DownloadButtonGroup />
       </DownloadBtnContainer>
     </div>
-  )
-}
+  );
+};
 
-export default EPUBPreview
+export default EPUBEmbedPreview;
