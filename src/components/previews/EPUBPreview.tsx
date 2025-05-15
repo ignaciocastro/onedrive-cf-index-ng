@@ -5,7 +5,7 @@ import DownloadButtonGroup from '../DownloadBtnGtoup';
 import { DownloadBtnContainer } from './Containers';
 
 
-const EPUBPreview: FC<{ file: OdFileObject }> = ({ file }) => {
+const EPUBPreview: React.FC<{ file: any }> = ({ file }) => {
   const { asPath } = useRouter()
   const hashedToken = getStoredToken(asPath)
 
