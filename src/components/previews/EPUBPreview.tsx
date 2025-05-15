@@ -36,4 +36,4 @@ const EPUBPreview: FC<{ file: OdFileObject }> = ({ file }) => {
   );
 };
 
-export default EPUBEmbedPreview;
+export default EPUBPreview;
